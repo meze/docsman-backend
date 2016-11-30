@@ -1,0 +1,13 @@
+Docsman\Model\Project:
+    type: entity
+    table: project
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name: ~
+    oneToMany:
+        documents:
+            targetEntity: Docsman\Model\Document
+            mappedBy: project

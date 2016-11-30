@@ -1,0 +1,36 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+    docsman.home_controller:
+        class:    AppBundle\Controller\HomeController
+        autowire: true
+    docsman.project_controller:
+        class:    AppBundle\Controller\ProjectController
+        autowire: true
+    docsman.document_controller:
+        class:    AppBundle\Controller\DocumentController
+        autowire: true
+
+    docsman.query_dispatcher:
+        class: Docsman\Core\QueryDispatcher
+        autowire: true
+    docsman.query_handler_locator:
+        class:   Docsman\Core\QueryHandlerLocator
+        factory: ['AppBundle\Locator\HandlerLocatorFactory', createQueryHandlersMap]
+        arguments: ['@service_container']
+    docsman.command_dispatcher:
+        class: Docsman\Core\CommandDispatcher
+        autowire: true
+    docsman.command_handler_locator:
+        class:   Docsman\Core\CommandHandlerLocator
+        factory: ['AppBundle\Locator\HandlerLocatorFactory', createCommandHandlersMap, ['@container']]
+        arguments: ['@service_container']
+
+    docsman.param_converter:
+        class: AppBundle\ParamConverter\JsonParamConverter
+        autowire: true
+        tags:
+            - {name: request.param_converter, priority: 100 }
