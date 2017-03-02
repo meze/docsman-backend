@@ -51,6 +51,7 @@ abstract class Controller
      * @param string $view
      * @param array  $parameters
      *
+     * @throws \RuntimeException
      * @return Response
      */
     protected function render(string $view, array $parameters = []): Response

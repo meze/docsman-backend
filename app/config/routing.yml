@@ -1,3 +1,5 @@
+api_login_check:
+    path: /api/login_check
 homepage:
     path:     /
     defaults: { _controller: docsman.home_controller:indexAction }

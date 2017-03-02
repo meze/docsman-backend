@@ -1,0 +1,14 @@
+Docsman\Model\User:
+    type: entity
+    table: '"user"'
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        password: ~
+        roles:
+            type: json_array
+        email: ~
+        isActive: ~
+        creationDate: ~

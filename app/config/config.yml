@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
 
+#
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
@@ -59,7 +60,7 @@ doctrine:
             Docsman:
               mapping: true
               type: yml
-              dir: '../src/AppBundle/Resources/config/doctrine'
+              dir: "%kernel.root_dir%/../src/AppBundle/Resources/config/doctrine"
               alias: 'Docsman'
               prefix: 'Docsman\Model'
               is_bundle: false
@@ -76,3 +77,9 @@ sensio_framework_extra:
     request:
         converters: true
         auto_convert: true
+
+lexik_jwt_authentication:
+    private_key_path: '%jwt_private_key_path%'
+    public_key_path:  '%jwt_public_key_path%'
+    pass_phrase:      '%jwt_key_pass_phrase%'
+    token_ttl:        '%jwt_token_ttl%'

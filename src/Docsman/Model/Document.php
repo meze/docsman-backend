@@ -48,7 +48,7 @@ final class Document
         $this->project = $project;
         $this->rename($name);
         $this->content = $content;
-        $this->creationDate = new \DateTime('now', new \DateTimeZone('UTC'));;
+        $this->creationDate = new \DateTime('now', new \DateTimeZone('UTC'));
     }
 
     /**
