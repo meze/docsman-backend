@@ -1,0 +1,20 @@
+documents:
+    path:     /projects/{projectId}/documents
+    defaults: { _controller: docsman.document_controller:indexAction }
+    methods:  [GET]
+document:
+    path:     /projects/{projectId}/documents/{id}
+    defaults: { _controller: docsman.document_controller:viewAction }
+    methods:  [GET]
+add_document:
+    path:     /projects/{projectId}/documents
+    defaults: { _controller: docsman.document_controller:saveAction }
+    methods:  [POST]
+save_document:
+    path:     /projects/{projectId}/documents/{id}
+    defaults: { _controller: docsman.document_controller:saveAction }
+    methods:  [PUT]
+remove_document:
+    path:     /projects/{projectId}/documents/{documentId}
+    defaults: { _controller: docsman.document_controller:removeAction }
+    methods:  [DELETE]

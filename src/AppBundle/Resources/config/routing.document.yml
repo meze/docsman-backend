@@ -1,0 +1,20 @@
+projects:
+    path:     /projects
+    defaults: { _controller: docsman.project_controller:indexAction }
+    methods:  [GET]
+project:
+    path:     /projects/{id}
+    defaults: { _controller: docsman.project_controller:viewAction }
+    methods:  [GET]
+add_project:
+    path:     /projects
+    defaults: { _controller: docsman.project_controller:saveAction }
+    methods:  [POST]
+save_project:
+    path:     /projects/{projectId}
+    defaults: { _controller: docsman.project_controller:renameAction }
+    methods:  [PUT]
+remove_project:
+    path:     /projects/{projectId}
+    defaults: { _controller: docsman.project_controller:removeAction }
+    methods:  [DELETE]

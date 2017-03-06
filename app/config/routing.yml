@@ -3,39 +3,9 @@ api_login_check:
 homepage:
     path:     /
     defaults: { _controller: docsman.home_controller:indexAction }
-projects:
-    path:     /projects
-    defaults: { _controller: docsman.project_controller:indexAction }
-    methods:  [GET]
+
 project:
-    path:     /projects/{id}
-    defaults: { _controller: docsman.project_controller:viewAction }
-    methods:  [GET]
-documents:
-    path:     /projects/{projectId}/documents
-    defaults: { _controller: docsman.document_controller:indexAction }
-    methods:  [GET]
+    resource: '@AppBundle/Resources/config/routing.project.yml'
+
 document:
-    path:     /projects/{projectId}/documents/{id}
-    defaults: { _controller: docsman.document_controller:viewAction }
-    methods:  [GET]
-add_document:
-    path:     /projects/{projectId}/documents
-    defaults: { _controller: docsman.document_controller:saveAction }
-    methods:  [POST]
-save_document:
-    path:     /projects/{projectId}/documents/{id}
-    defaults: { _controller: docsman.document_controller:saveAction }
-    methods:  [PUT]
-add_project:
-    path:     /projects
-    defaults: { _controller: docsman.project_controller:saveAction }
-    methods:  [POST]
-save_project:
-    path:     /projects/{projectId}
-    defaults: { _controller: docsman.project_controller:renameAction }
-    methods:  [PUT]
-remove_project:
-    path:     /projects/{projectId}
-    defaults: { _controller: docsman.project_controller:removeAction }
-    methods:  [DELETE]
+    resource: '@AppBundle/Resources/config/routing.document.yml'
