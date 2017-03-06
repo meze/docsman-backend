@@ -10,7 +10,7 @@ use Docsman\Model\Document;
 class SoftRemoveDocumentCommandHandler extends DoctrineCommandHandler implements ICommandHandler
 {
     /**
-     * @param SoftRemoveDocumentCommand $command
+     * @param SoftRemoveDocumentCommand|ICommand $command
      *
      * @return void
      * @throws \InvalidArgumentException

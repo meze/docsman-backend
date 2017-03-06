@@ -10,8 +10,9 @@ use Docsman\Model\Project;
 class SaveProjectCommandHandler extends DoctrineCommandHandler implements ICommandHandler
 {
     /**
-     * @param SaveProjectCommand $command
+     * @param SaveProjectCommand|ICommand $command
      *
+     * @throws \InvalidArgumentException
      * @return void
      */
     public function execute(ICommand $command): void

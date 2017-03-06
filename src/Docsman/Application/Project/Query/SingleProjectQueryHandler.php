@@ -10,9 +10,9 @@ use Docsman\Model\Project;
 class SingleProjectQueryHandler extends DoctrineQueryHandler implements IQueryHandler
 {
     /**
-     * @param SingleProjectQuery $query
+     * @param SingleProjectQuery|Query $query
      *
-     * @return null|Project
+     * @return Project|object|null
      */
     public function retrieve(Query $query): ?Project
     {

@@ -10,10 +10,10 @@ use Docsman\Model\Document;
 class FindAllDocumentsQueryHandler extends DoctrineQueryHandler implements IQueryHandler
 {
     /**
-     * @param FindAllDocumentsQuery $query
+     * @param FindAllDocumentsQuery|Query $query
      *
      * @throws \UnexpectedValueException
-     * @return array
+     * @return Document[]
      */
     public function retrieve(Query $query): array
     {

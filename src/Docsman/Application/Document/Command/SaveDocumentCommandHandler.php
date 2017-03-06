@@ -11,8 +11,9 @@ use Docsman\Model\Project;
 class SaveDocumentCommandHandler extends DoctrineCommandHandler implements ICommandHandler
 {
     /**
-     * @param SaveDocumentCommand $command
+     * @param SaveDocumentCommand|ICommand $command
      *
+     * @throws \InvalidArgumentException
      * @return void
      */
     public function execute(ICommand $command): void

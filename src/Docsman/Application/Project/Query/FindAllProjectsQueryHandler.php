@@ -10,9 +10,9 @@ use Docsman\Model\Project;
 class FindAllProjectsQueryHandler extends DoctrineQueryHandler implements IQueryHandler
 {
     /**
-     * @param FindAllProjectsQuery $query
+     * @param FindAllProjectsQuery|Query $query
      *
-     * @return array
+     * @return Project[]
      */
     public function retrieve(Query $query): array
     {

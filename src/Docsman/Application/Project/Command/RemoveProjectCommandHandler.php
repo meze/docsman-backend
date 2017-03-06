@@ -10,8 +10,9 @@ use Docsman\Model\Project;
 class RemoveProjectCommandHandler extends DoctrineCommandHandler implements ICommandHandler
 {
     /**
-     * @param RemoveProjectCommand $command
+     * @param RemoveProjectCommand|ICommand $command
      *
+     * @throws \InvalidArgumentException
      * @return void
      */
     public function execute(ICommand $command): void

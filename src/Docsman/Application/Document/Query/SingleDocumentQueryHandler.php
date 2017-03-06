@@ -10,9 +10,9 @@ use Docsman\Model\Document;
 class SingleDocumentQueryHandler extends DoctrineQueryHandler implements IQueryHandler
 {
     /**
-     * @param SingleDocumentQuery $query
+     * @param SingleDocumentQuery|Query $query
      *
-     * @return null|Document
+     * @return Document|object|null
      */
     public function retrieve(Query $query): ?Document
     {
