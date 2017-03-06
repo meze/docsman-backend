@@ -12,6 +12,7 @@ class FindAllDocumentsQueryHandler extends DoctrineQueryHandler implements IQuer
     /**
      * @param FindAllDocumentsQuery $query
      *
+     * @throws \UnexpectedValueException
      * @return array
      */
     public function retrieve(Query $query): array
@@ -19,7 +20,8 @@ class FindAllDocumentsQueryHandler extends DoctrineQueryHandler implements IQuer
         $repository = $this->doctrineRegistry->getRepository(Document::class);
 
         return $repository->findBy([
-            'project' => $query->getProjectId()
+            'project' => $query->getProjectId(),
+            'isTrash' => false
         ], [
             'creationDate' => 'desc'
         ]);

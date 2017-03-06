@@ -4,7 +4,7 @@ namespace Docsman\Application\Document\Command;
 
 use Docsman\Core\Contract\ICommand;
 
-class TrashDocumentCommand implements ICommand
+class SoftRemoveDocumentCommand implements ICommand
 {
     /**
      * @var int

@@ -7,12 +7,13 @@ use Docsman\Core\Contract\ICommand;
 use Docsman\Core\Contract\ICommandHandler;
 use Docsman\Model\Document;
 
-class TrashDocumentCommandHandler extends DoctrineCommandHandler implements ICommandHandler
+class SoftRemoveDocumentCommandHandler extends DoctrineCommandHandler implements ICommandHandler
 {
     /**
-     * @param TrashDocumentCommand $command
+     * @param SoftRemoveDocumentCommand $command
      *
      * @return void
+     * @throws \InvalidArgumentException
      */
     public function execute(ICommand $command): void
     {
@@ -21,7 +22,7 @@ class TrashDocumentCommandHandler extends DoctrineCommandHandler implements ICom
 
         /** @var Document $document */
         $document = $documentRepository->find($command->getId());
-        $document->trash();
+        $document->softRemove();
 
         $manager->flush();
     }

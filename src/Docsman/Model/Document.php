@@ -126,7 +126,7 @@ final class Document
     /**
      * @return void
      */
-    public function trash()
+    public function softRemove()
     {
         $this->isTrash = true;
     }

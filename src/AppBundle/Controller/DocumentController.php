@@ -3,6 +3,7 @@ declare(strict_types = 1);
 namespace AppBundle\Controller;
 
 use Docsman\Application\Document\Command\SaveDocumentCommand;
+use Docsman\Application\Document\Command\SoftRemoveDocumentCommand;
 use Docsman\Application\Document\Query\FindAllDocumentsQuery;
 use Docsman\Application\Document\Query\SingleDocumentQuery;
 use Docsman\Application\Project\Query\SingleProjectQuery;
@@ -42,5 +43,12 @@ final class DocumentController extends Controller
         $document = $this->queryDispatcher->dispatch(new SingleDocumentQuery($command->getId()))->getResult();
 
         return $this->json($document);
+    }
+
+    public function removeAction(int $documentId): JsonResponse
+    {
+        $this->commandDispatcher->dispatch(new SoftRemoveDocumentCommand($documentId));
+
+        return $this->json($documentId);
     }
 }

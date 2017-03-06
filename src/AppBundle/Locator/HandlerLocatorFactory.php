@@ -3,6 +3,7 @@ declare(strict_types = 1);
 namespace AppBundle\Locator;
 
 use Docsman\Application\Document\Command\SaveDocumentCommand;
+use Docsman\Application\Document\Command\SoftRemoveDocumentCommand;
 use Docsman\Application\Document\Query\FindAllDocumentsQuery;
 use Docsman\Application\Document\Query\SingleDocumentQuery;
 use Docsman\Application\Project\Command\RemoveProjectCommand;
@@ -42,6 +43,7 @@ final class HandlerLocatorFactory
         self::addLazy($handlers, SaveDocumentCommand::class, $doctrine);
         self::addLazy($handlers, SaveProjectCommand::class, $doctrine);
         self::addLazy($handlers, RemoveProjectCommand::class, $doctrine);
+        self::addLazy($handlers, SoftRemoveDocumentCommand::class, $doctrine);
 
         return new CommandHandlerLocator($handlers);
     }

@@ -26,7 +26,7 @@ class DocumentTest extends \PHPUnit_Framework_TestCase
     public function testMarksAsTrash()
     {
         $document = new Document(new Project('name'), 'Old name');
-        $document->trash();
+        $document->softRemove();
 
         $this->assertTrue($document->isTrash());
     }
