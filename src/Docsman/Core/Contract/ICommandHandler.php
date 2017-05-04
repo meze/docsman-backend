@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 namespace Docsman\Core\Contract;
 
-interface ICommandHandler
+interface ICommandHandler extends IHandler
 {
     /**
      * @param ICommand $command

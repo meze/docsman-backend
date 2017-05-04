@@ -2,15 +2,17 @@
 declare(strict_types = 1);
 namespace Docsman\Core;
 
+use Docsman\Core\Contract\IHandler;
+
 abstract class HandlerLocator
 {
     /**
-     * @var array
+     * @var IHandler[]
      */
     private $handlers = [];
 
     /**
-     * @param array $handlers
+     * @param IHandler[] $handlers
      */
     public function addAll(array $handlers): void
     {
@@ -21,7 +23,7 @@ abstract class HandlerLocator
 
     /**
      * @param string          $name
-     * @param object|callable $handler
+     * @param IHandler|callable $handler
      */
     protected function addHandler(string $name, $handler): void
     {
@@ -32,9 +34,9 @@ abstract class HandlerLocator
      * @param string $name
      *
      * @throws \RuntimeException
-     * @return mixed
+     * @return IHandler
      */
-    protected function getHandler(string $name)
+    protected function getHandler(string $name): IHandler
     {
         if ( ! array_key_exists($name, $this->handlers)) {
             throw new \RuntimeException("A handler for '{$name}' is not registered.");

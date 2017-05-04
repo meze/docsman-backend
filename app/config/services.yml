@@ -10,6 +10,9 @@ services:
     docsman.document_controller:
         class:    AppBundle\Controller\DocumentController
         autowire: true
+    docsman.tracking_controller:
+        class:    AppBundle\Controller\TrackingController
+        autowire: true
 
     docsman.query_dispatcher:
         class: Docsman\Core\QueryDispatcher
@@ -25,9 +28,12 @@ services:
         class:   Docsman\Core\CommandHandlerLocator
         factory: ['AppBundle\Locator\HandlerLocatorFactory', createCommandHandlersMap, ['@container']]
         arguments: ['@service_container']
+    docsman.service.tracking:
+        class:    AppBundle\Service\DatabaseTrackingService
+        autowire: true
 
     docsman.param_converter:
         class: AppBundle\ParamConverter\JsonParamConverter
         autowire: true
         tags:
-            - {name: request.param_converter, priority: 100 }
+            - { name: request.param_converter, priority: 100 }

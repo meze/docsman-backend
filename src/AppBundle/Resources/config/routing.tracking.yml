@@ -1,0 +1,4 @@
+track:
+    path:     /track.gif
+    defaults: { _controller: docsman.tracking_controller:indexAction, trackingService: "@service.tracking" }
+    methods:  [GET]

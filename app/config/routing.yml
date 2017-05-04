@@ -9,3 +9,6 @@ project:
 
 document:
     resource: '@AppBundle/Resources/config/routing.document.yml'
+
+tracking:
+    resource: '@AppBundle/Resources/config/routing.tracking.yml'

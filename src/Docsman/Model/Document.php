@@ -96,7 +96,7 @@ final class Document
      *
      * @return void
      */
-    public function rename(string $name)
+    public function rename(string $name): void
     {
         if ( ! empty($name)) {
             $this->name = $name;

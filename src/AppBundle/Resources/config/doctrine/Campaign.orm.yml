@@ -1,0 +1,18 @@
+Docsman\Model\Tracking:
+    type: entity
+    table: tracking
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name: ~
+        createdAt:
+            type: datetime
+    manyToOne:
+        campaign:
+            targetEntity: Docsman\Model\Campaign
+            inversedBy: trackings
+            joinColumn:
+                name: campaign_id
+                referencedColumnName: id

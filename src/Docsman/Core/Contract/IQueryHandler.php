@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 namespace Docsman\Core\Contract;
 
-interface IQueryHandler
+interface IQueryHandler extends IHandler
 {
     /**
      * @param Query $query
